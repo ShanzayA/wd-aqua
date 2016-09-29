@@ -80,7 +80,7 @@ class AnswerPage extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {  label : "", type: "" };
+    this.state = {  label : "", abstract: "" };
   }
 
   componentDidMount() {
@@ -122,9 +122,6 @@ class AnswerPage extends Component {
               "http://dbpedia.org/sparql?query="+encodeURIComponent(sparqlQuery)+"&format=application%2Fsparql-results%2Bjson&CXML_redir_for_hrefs=&timeout=30000&debug=on",
               function (result) {
 
-                console.log("the final label result is...........:");
-                console.log(result.results.bindings[0].label.value);
-
                 this.setState({
                   label: result.results.bindings[0].label.value
                 });
@@ -165,6 +162,7 @@ class AnswerPage extends Component {
       <div className={s.container}>
         <h1>Answer</h1>
         <Label>{this.state.label}</Label>
+        <Label>{this.state.abstract}</Label>
       </div>
     );
   }

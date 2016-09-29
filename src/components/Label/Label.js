@@ -14,7 +14,6 @@ import s from './Label.scss';
 class Label extends Component {
 
   static propTypes = {
-    size: PropTypes.string.isRequired,
   };
 
   constructor(props) {
@@ -24,7 +23,7 @@ class Label extends Component {
 
   render() {
     return (
-      <div className="s.container">
+      <div className={s.container}>
         <p>{this.props.children}</p>
       </div>
     );
